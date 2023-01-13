@@ -13,7 +13,7 @@ class App extends React.Component {
     }
     handleClick(){
         this.setState(prevState => {
-            return {age : prevState.age + 1}
+            return {age: prevState.age + 1}
         });
     }
 
