@@ -1,32 +1,31 @@
-import React,{useState} from 'react'
+import React, {Component} from 'react'
 import '../styles/App.css';
 
-class App extends React.Component {
+class App extends Component {
     constructor(props){
-        super(props);
-        this.state = {
-            name: "John Doe",
-            enrollmentNo: "12345678",
-            age: 34
+        super(props)
+        this.state={ 
+            name: "John Doe", enrollmentNo: "12345678", age: 34
         };
-        this.handleClick = this.handleClick.bind(this);
     }
-    handleClick(){
-        this.setState(prevState => {
-            return {age: prevState.age + 1}
+
+    handleButtonClick() {
+        this.setState({
+            age:this.state.age+1
         });
     }
 
-    render(){
-        const {name, enrollmentNo, age} = this.state;
-        return(
-            <div>
-                <h1>Hello, my name is {name}</h1>
-                <p>I am {age} year old  old and my enrollment no is {enrollmentNo} </p>
-                <button onClick={this.handleClick}> Increse age</button>
-            </div>
-        );
-    }
+
+    render() {
+        return (
+            <>
+                <h1>{`Hello, my name is ${this.state.name}`}</h1>
+                <p>{`I am ${this.state.age} years old and my enrollment no is ${this.state.enrollmentNo}`}</p>
+                <button onClick={()=>this.handleButtonClick()}> Submit </button>
+            </>
+        )
+    } 
 }
+
 
 export default App;
